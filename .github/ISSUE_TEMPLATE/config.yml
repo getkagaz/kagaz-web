@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Kagaz CLI — bug or feature request
+    url: https://github.com/getkagaz/kagaz/issues/new/choose
+    about: This repo is only the website (getkagaz.app). Report CLI, MCP, or app issues on the main Kagaz repo.
+  - name: Security report
+    url: https://github.com/getkagaz/kagaz/blob/main/SECURITY.md
+    about: Please report security issues privately per the Kagaz security policy — do not open a public issue.

@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self' 'inline-speculation-rules'; object-src 'none'; form-action 'self'; manifest-src 'self'; require-trusted-types-for 'script'" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<title>Kagaz — Local-first document vault manager for macOS</title>
+<meta name="description" content="Kagaz names, files and tags your macOS documents by convention — local-first and agent-legible, with no database, no cloud and no proprietary format." />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="theme-color" content="#f6f2e9" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#17140f" media="(prefers-color-scheme: dark)" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<link rel="canonical" href="https://getkagaz.app/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Kagaz — Local-first document vault manager for macOS" />
+<meta property="og:description" content="Names, files and tags your documents by convention — no database, no cloud, no proprietary format. Agent-legible: --json everywhere, plus an MCP server." />
+<meta property="og:url" content="https://getkagaz.app/" />
+<meta property="og:site_name" content="Kagaz" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="og:image" content="https://getkagaz.app/assets/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Kagaz — local-first document vault manager for macOS" />
+<meta name="twitter:image" content="https://getkagaz.app/assets/og.png" />
+
+<!-- Apply saved theme before paint (external for strict CSP) -->
+<script src="theme-init.js"></script>
+
+<link rel="preload" href="assets/fonts/instrument-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="assets/fonts/fonts.css" />
+<link rel="stylesheet" href="styles.css" />
+<script type="speculationrules">
+{ "prerender": [ { "where": { "href_matches": "/*" }, "eagerness": "moderate" } ] }
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header" id="top">
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#b6552b"/><text x="32" y="45" text-anchor="middle" font-size="40" font-weight="700" fill="#faf5ea" font-family="'Kohinoor Devanagari','Noto Sans Devanagari','Devanagari Sangam MN','Nirmala UI',serif">क</text></svg>
+      <span class="word">Kagaz</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="#app">Mac app</a>
+      <a href="#agents">For agents</a>
+      <a href="#privacy">Privacy</a>
+      <a href="commands.html">Commands</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
+        <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <a class="icon-btn" href="https://github.com/getkagaz/kagaz" aria-label="Kagaz on GitHub" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.36-3.88-1.36-.53-1.35-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.75.4-1.27.74-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.28 5.69.41.36.78 1.05.78 2.12v3.14c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+      </a>
+      <a class="btn btn-primary nav-cta-desktop" href="#install">Install</a>
+      <button class="icon-btn nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill"><span class="dot"></span> Pre-1.0 · Apple silicon · macOS 15+</span>
+      <h1>Your documents stay <span class="accent">ordinary files.</span> Kagaz makes them findable.</h1>
+      <p class="lead">Kagaz (काग़ज़, “paper”) is a local-first document vault manager for macOS. It names, files and tags your documents by convention — no database, no cloud, and no proprietary format standing between you and your files.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="#install">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+          Get Kagaz
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#how">See how it works</a>
+      </div>
+      <p class="hero-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        Open-source CLI, MIT-licensed &amp; free forever · Nothing ever leaves your Mac
+      </p>
+    </div>
+
+    <div class="hero-visual">
+      <div class="terminal" aria-hidden="true">
+        <div class="bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">~/Documents — kagaz</span></div>
+        <div class="body">
+<span class="line"><span class="prompt">$</span> <span class="cmd">kagaz ingest</span> ~/Downloads/acme-invoice.pdf</span>
+<span class="line"><span class="out">  OCR → classify → propose (nothing moved yet)</span></span>
+<span class="line"><span class="out">  doctype </span><span class="kw">invoice</span><span class="out">  ·  owner </span><span class="kw">Alex Rao</span><span class="out">  ·  FY2026</span></span>
+<span class="line"><span class="out">  → Financial/Alex Rao/FY 2026/</span></span>
+<span class="line"><span class="out">    Invoice_Alex-Rao_Acme-Corp_2026.pdf</span></span>
+<span class="line"><span class="ok">  ✓ approved · manifest written · source staged</span></span>
+<span class="line"> </span>
+<span class="line"><span class="prompt">$</span> <span class="cmd">kagaz find</span> <span class="flag">--doctype</span> invoice <span class="flag">--period</span> FY2026</span>
+<span class="line"><span class="out">  1 result · Financial/Alex Rao/FY 2026</span></span>
+<span class="line"> </span>
+<span class="line"><span class="prompt">$</span> <span class="cmd">kagaz lint</span> <span class="flag">--json</span></span>
+<span class="line"><span class="ok">  { "status": "ok", "findings": [] }</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRUST STRIP ===================== -->
+<div class="strip">
+  <div class="wrap">
+    <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4Z"/></svg> No cloud. No account.</div>
+    <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg> Plain files in plain folders</div>
+    <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17V7m0 10 4-4 4 4 8-8"/></svg> On-device OCR &amp; classification</div>
+    <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m0 8v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3m0-8V5a2 2 0 0 0-2-2h-3"/></svg> <code class="code-sm">--json</code> everywhere + MCP</div>
+    <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Zm9-5v5l3 3"/></svg> Every change reversible</div>
+  </div>
+</div>
+
+<!-- ===================== FEATURES ===================== -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What it does</div>
+      <h2 class="h-sec">One filename grammar. One folder layout. One tag vocabulary.</h2>
+      <p class="lead center mt-16">All defined by a single <code class="ca">vault.yaml</code> — never hardcoded. Kagaz enforces the convention so every document lands where you expect and stays findable.</p>
+    </div>
+
+    <div class="grid grid-3 reveal mt-52">
+      <article class="card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6l2 3h8v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg></span>
+        <h3>Convention-enforcing filing</h3>
+        <p>Ingest a document and Kagaz derives its conventional name and folder from your <code>vault.yaml</code> — then previews the move before touching a byte.</p>
+      </article>
+      <article class="card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+        <h3>Offline, searchable facts</h3>
+        <p>A searchable index built from the files themselves. Query by person, company, area, doctype, tag, fiscal period, or free text — all offline.</p>
+      </article>
+      <article class="card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 8.4 12 3 3.4 8.4v7.2L12 21l8.6-5.4Z"/><path d="M3.4 8.4 12 13.8l8.6-5.4M12 13.8V21"/></svg></span>
+        <h3>Tiered on-device OCR</h3>
+        <p>Text-layer PDFs, images, and scans via Apple Vision — plus a rules classifier that needs zero downloads. It gets better as you opt into more, never different.</p>
+      </article>
+      <article class="card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6M9 16h6M9 8h2M7 3h7l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/></svg></span>
+        <h3>Office files, no Office</h3>
+        <p>Reads <code>.docx</code> / <code>.xlsx</code> / <code>.pptx</code> in-process — no Microsoft Office, no external tool. Legacy <code>.doc</code>/<code>.rtf</code>/<code>.xls</code> handled too.</p>
+      </article>
+      <article class="card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a1 1 0 0 1 1-1h4l2 2h7a1 1 0 0 1 1 1v2"/><path d="M4 7h17l-1.5 11a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7Z"/></svg></span>
+        <h3>Finder tags, controlled</h3>
+        <p>Writes real Finder tags validated against a controlled vocabulary. An off-vocabulary tag is refused before it's written — no drift, no orphans.</p>
+      </article>
+      <article class="card">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8l7-5 7 5M5 8v8l7 5 7-5V8"/></svg></span>
+        <h3>Lint your vault</h3>
+        <p><code>kagaz lint</code> reports convention violations — wrong folders, bad grammar, missing lifecycle tags — and <code>--fix</code> applies only provably safe repairs.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW IT WORKS ===================== -->
+<section class="section alt" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How it works</div>
+      <h2 class="h-sec">From a pile of downloads to a tidy vault</h2>
+    </div>
+    <div class="steps mt-56">
+      <div class="step">
+        <h3>Create a vault</h3>
+        <p>Write a <code>vault.yaml</code> and category folders at <code>~/Documents</code>. Or explore a populated demo.</p>
+        <span class="cmd">$ kagaz init --demo</span>
+      </div>
+      <div class="step">
+        <h3>Ingest</h3>
+        <p>OCR → classify → propose. Every move is previewed and needs your approval first.</p>
+        <span class="cmd">$ kagaz ingest ~/Downloads/*</span>
+      </div>
+      <div class="step">
+        <h3>Find</h3>
+        <p>Query by person, company, doctype, tag or fiscal period — or just free text.</p>
+        <span class="cmd">$ kagaz find "acme"</span>
+      </div>
+      <div class="step">
+        <h3>Keep it clean</h3>
+        <p>Lint the tree, regenerate <code>INDEX.md</code> + <code>AGENTS.md</code>, roll anything back.</p>
+        <span class="cmd">$ kagaz lint --fix</span>
+      </div>
+    </div>
+    <p class="center muted mt-36 fs-95">Every mutating command follows the same path: <b class="ink2">propose → preview → approve → execute with a manifest</b>. Nothing changes silently.</p>
+  </div>
+</section>
+
+<!-- ===================== MAC APP ===================== -->
+<section class="section" id="app">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow">Kagaz for Mac</div>
+      <h2 class="h-sec">The same vault, in a menu-bar app</h2>
+      <p class="lead mt-16">A native SwiftUI menu-bar app that holds <b>zero vault logic</b> of its own — it shells out to the <code class="ca">kagaz</code> CLI over <code class="ca">--json</code>, exactly like you would from a terminal. Convenience over the CLI, never a gate in front of it.</p>
+      <ul class="checklist">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Triage inbox</b> — review incoming documents and file them in a click.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Proposal review</b> — see the proposed name, folder and tags before approving.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Confidential gate</b> — a confirmation step before any confidential document leaves the vault.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Lint &amp; config editor</b> — fix convention violations and edit <code>vault.yaml</code> with live validation.</span></li>
+      </ul>
+      <div class="hero-cta mt-28">
+        <span class="btn is-soon">Kagaz for Mac — launching soon</span>
+      </div>
+    </div>
+
+    <div class="window reveal" aria-hidden="true">
+      <div class="titlebar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="t">Kagaz — Triage</span></div>
+      <div class="content">
+        <div class="mock-row">
+          <span class="doc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M14 3v5h5"/></svg></span>
+          <span class="meta">
+            <span class="name">Invoice_Alex-Rao_Acme-Corp_2026.pdf</span>
+            <span class="path">Financial / Alex Rao / FY 2026</span>
+          </span>
+          <span class="tag tag-inv">invoice</span>
+        </div>
+        <div class="mock-row">
+          <span class="doc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M14 3v5h5"/></svg></span>
+          <span class="meta">
+            <span class="name">Passport_Alex-Rao_2031.pdf</span>
+            <span class="path">Identity / Alex Rao</span>
+          </span>
+          <span class="tag tag-conf">confidential</span>
+        </div>
+        <div class="mock-row">
+          <span class="doc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M14 3v5h5"/></svg></span>
+          <span class="meta">
+            <span class="name">Lease_Agreement_2026.docx</span>
+            <span class="path">Property / Home</span>
+          </span>
+          <span class="tag tag-ok">filed ✓</span>
+        </div>
+        <div class="mock-row mock-row--note">
+          <span class="meta mock-note">3 proposals · all decoded from <span class="ca">kagaz --json</span></span>
+          <span class="tag tag-ok ml-auto">Approve all</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOR AGENTS ===================== -->
+<section class="section alt" id="agents">
+  <div class="wrap split">
+    <div class="window reveal window--mono" aria-hidden="true">
+      <div class="titlebar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="t">AGENTS.md · generated</span></div>
+      <div class="content agents-doc">
+        <div class="ad-accent"># This vault, for an agent</div>
+        <div class="ad-line">Call <b class="ink">kagaz &lt;cmd&gt; --json</b> for stable output.</div>
+        <div class="ad-line ad-dim">doctypes: invoice, statement, passport …</div>
+        <div class="ad-dim">tags: fy2026, acme-corp, confidential …</div>
+        <div class="ad-line">mdfind: <span class="ind">kMDItemUserTags == "invoice"</span></div>
+        <div class="ad-cmd">$ kagaz mcp   <span class="ad-dim"># stdio MCP server</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow">Built for agents</div>
+      <h2 class="h-sec">Agent-legible on purpose</h2>
+      <p class="lead mt-16">Kagaz was designed so an AI agent can drive it as safely as you can — with the same previews, the same audit trail, and no hidden state.</p>
+      <ul class="checklist">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b><code>--json</code> on every command</b> — a stable, documented envelope with exit codes a script can branch on.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>An MCP server</b> — <code>kagaz mcp</code> exposes the vault to any MCP-capable client over stdio.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>A generated <code>AGENTS.md</code></b> — regenerated by <code>kagaz index</code>, teaching an agent exactly how this vault is organized.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>One mutator</b> — the CLI is the only thing that ever changes a vault, so every action is auditable and reversible.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRIVACY ===================== -->
+<section class="section" id="privacy">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Privacy by design</div>
+      <h2 class="h-sec">Invariants, not promises</h2>
+      <p class="lead center mt-16">These are enforced in code, checked at call time — not settings you can quietly turn off.</p>
+    </div>
+    <div class="priv-grid mt-52">
+      <div class="priv">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4Z"/></svg></span>
+        <div><h3>Nothing leaves your machine</h3><p>The only network call anywhere is an explicit, opt-in <code>kagaz model pull</code>. Classification and OCR run on-device or against a verified localhost endpoint.</p></div>
+      </div>
+      <div class="priv">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M6 6v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"/><path d="m9.5 11 5 5m0-5-5 5" stroke-width="1.6"/></svg></span>
+        <div><h3>Your documents are never deleted</h3><p>A “move” copies, verifies by SHA256, then retires the source into a staging folder only you empty. Delete Kagaz and every file is right where it was.</p></div>
+      </div>
+      <div class="priv">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8m0-5v5h5"/></svg></span>
+        <div><h3>Every mutation is reversible</h3><p>Each mutating command writes a manifest before the first byte moves. <code>kagaz rollback</code> reverses it — safe to run twice.</p></div>
+      </div>
+      <div class="priv">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
+        <div><h3>Confidential sends are gated</h3><p>Resolving a confidential document to send it out of the vault always requires explicit confirmation and always writes an audit line — no flag bypasses either.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COMMANDS TEASER ===================== -->
+<section class="section alt">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <div class="eyebrow">One binary</div>
+        <h2 class="h-sec">A command for every step</h2>
+        <p class="lead mt-16">Fifteen focused subcommands, each with a stable <code>--json</code> shape and documented exit codes. Read-only queries and reversible mutations, clearly separated.</p>
+        <a class="btn btn-ghost btn-lg mt-24" href="commands.html">Full command reference →</a>
+      </div>
+      <div class="table-card table-scroll">
+        <table class="cmd-table">
+          <tbody>
+            <tr><td><code>kagaz init</code></td><td>Create a new vault</td></tr>
+            <tr><td><code>kagaz ingest</code></td><td>OCR → classify → propose → file</td></tr>
+            <tr><td><code>kagaz find</code></td><td>Query the vault</td></tr>
+            <tr><td><code>kagaz lint</code></td><td>Report &amp; fix convention violations</td></tr>
+            <tr><td><code>kagaz rollback</code></td><td>Reverse any manifest</td></tr>
+            <tr><td><code>kagaz mcp</code></td><td>Run the stdio MCP server</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRICING ===================== -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Pricing</div>
+      <h2 class="h-sec">Open core. The CLI is free forever.</h2>
+      <p class="lead center mt-16">The <code>kagaz</code> CLI, MCP server and helpers are MIT-licensed and free — nothing is withheld or degraded to sell the app. The Mac app is a separate, paid product… but it's <b>free for now</b>.</p>
+    </div>
+
+    <div class="price-grid mt-52">
+      <div class="plan">
+        <h3>Kagaz CLI</h3>
+        <p class="tagline">The complete vault manager — terminal &amp; agents</p>
+        <div class="price"><span class="amt">Free</span></div>
+        <div class="price-note">MIT-licensed · open source · forever</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Every command, no gates</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> MCP server + <code>--json</code> everywhere</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> On-device OCR &amp; classification</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Full source on GitHub</li>
+        </ul>
+        <a class="btn btn-ghost" href="#install">Install the CLI</a>
+      </div>
+
+      <div class="plan featured">
+        <span class="badge">Free while in beta</span>
+        <h3>Kagaz for Mac</h3>
+        <p class="tagline">The native menu-bar app over the CLI</p>
+        <div class="price"><span class="amt">Free</span> <span class="per">for now</span></div>
+        <div class="price-note">Free while in beta. We'll announce pricing closer to the 1.0 release.</div>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Triage inbox &amp; one-click filing</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Visual proposal review</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Lint view &amp; config editor</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Confidential-send confirmation</li>
+        </ul>
+        <span class="btn is-soon">Launching soon</span>
+      </div>
+    </div>
+    <p class="center muted price-foot">The CLI stays free and open source regardless — a terminal user loses nothing by not buying the app.</p>
+  </div>
+</section>
+
+<!-- ===================== INSTALL ===================== -->
+<section class="section alt" id="install">
+  <div class="wrap maxw-820">
+    <div class="center">
+      <div class="eyebrow">Install</div>
+      <h2 class="h-sec">Get Kagaz on your Mac</h2>
+      <p class="lead center mt-16">Requires <b>Apple silicon</b> (M1 or later) and <b>macOS 15 (Sequoia)</b> or later.</p>
+    </div>
+
+    <h3 class="install-h">Install the CLI with Homebrew</h3>
+    <div class="codeblock" data-copy><span class="prompt">$ </span>brew tap getkagaz/kagaz
+<span class="prompt">$ </span>brew install kagaz</div>
+    <p class="muted mt-16 fs-95">Installs the <code class="ca">kagaz</code> CLI, the <code class="ca">kagaz-mcp</code> server and the on-device OCR helper. Then run <code class="ca">kagaz doctor</code> to check your setup.</p>
+
+    <h3 class="install-h">Kagaz for Mac <span class="muted h-note">— the menu-bar app</span></h3>
+    <div class="soon">
+      <span>A signed <code>.dmg</code> download will land here when the app is ready — free while it's in beta.</span>
+      <span class="soon-badge">Launching soon</span>
+    </div>
+    <div class="center mt-36">
+      <a class="btn btn-ghost btn-lg" href="https://github.com/getkagaz/kagaz">View the CLI on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head mb-44">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="h-sec">Questions, answered</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Is Kagaz a cloud service or a document store? <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p>Neither. There's no Kagaz account and no backend — nothing you file or search is ever sent anywhere. Your files stay as ordinary files on disk (or in iCloud Drive, if that's where <code>~/Documents</code> lives). It's not a general file manager either: it only touches documents that fit its doctype catalog and convention.</p>
+      </details>
+      <details>
+        <summary>Why Apple silicon only? <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p>Both semantic classifier tiers are Apple-silicon-only: Apple Vision's accurate-mode OCR and Apple Foundation Models' on-device generation are <code>arm64</code> frameworks. Rather than ship an Intel build stuck in a permanently degraded rules-only mode, Kagaz makes Apple silicon a deliberate, permanent requirement.</p>
+      </details>
+      <details>
+        <summary>Do I need to run a local LLM? <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p>No. The offline rules-based classifier is always available and is what most of Kagaz's own tests run against. Apple's on-device tiers add no download at all. MLX and Ollama are opt-in for people who want them.</p>
+      </details>
+      <details>
+        <summary>What's the relationship between the CLI and the Mac app? <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p>The CLI is the only thing that ever mutates a vault. The Mac app holds zero vault logic — it shells out to <code>kagaz ... --json</code> and parses the output, exactly like a human or any other agent. It's convenience over a CLI that's complete on its own.</p>
+      </details>
+      <details>
+        <summary>The app is free — will it stay that way? <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p>Kagaz for Mac is a paid, closed-source product, but it's <b>free for now</b> while it's pre-1.0. We'll charge once there's a more stable version. The <code>kagaz</code> CLI is and always will be free and open source (MIT) — nothing in it is withheld to sell the app.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="section-tight">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2>Keep your documents as files. Make them findable.</h2>
+      <p>Local-first, convention-enforcing, and reversible by design. Free and open source — with a native Mac app that's free while it's in beta.</p>
+      <div class="cta-actions">
+        <a class="btn btn-primary btn-lg" href="#install">Install Kagaz</a>
+        <a class="btn btn-ghost btn-lg" href="https://github.com/getkagaz/kagaz">View on GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#b6552b"/><text x="32" y="45" text-anchor="middle" font-size="40" font-weight="700" fill="#faf5ea" font-family="'Kohinoor Devanagari','Noto Sans Devanagari','Devanagari Sangam MN','Nirmala UI',serif">क</text></svg><span class="word">Kagaz</span></div>
+        <p>A local-first, agent-legible document vault manager for macOS. Your files stay yours.</p>
+      </div>
+      <div class="foot-col">
+        <h3>Product</h3>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#app">Mac app</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#install">Install</a>
+      </div>
+      <div class="foot-col">
+        <h3>Developers</h3>
+        <a href="commands.html">Command reference</a>
+        <a href="#agents">For agents</a>
+        <a href="https://github.com/getkagaz/kagaz/tree/main/docs">Documentation</a>
+        <a href="https://github.com/getkagaz/kagaz">Source (GitHub)</a>
+      </div>
+      <div class="foot-col">
+        <h3>Project</h3>
+        <a href="#privacy">Privacy</a>
+        <a href="https://github.com/getkagaz/kagaz/blob/main/LICENSE">License (MIT)</a>
+        <a href="https://github.com/getkagaz/kagaz/blob/main/SECURITY.md">Security</a>
+        <a href="https://github.com/getkagaz/kagaz/blob/main/CONTRIBUTING.md">Contributing</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Relyweb Technologies Private Limited. CLI is MIT-licensed.</span>
+      <span class="tag">“kaagaz” · paper</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Kagaz",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "macOS 15+ (Apple silicon)",
+      "description": "A local-first, agent-legible document vault manager for macOS. Names, files and tags documents by convention with no database, no cloud and no proprietary format.",
+      "url": "https://getkagaz.app/",
+      "downloadUrl": "https://github.com/getkagaz/kagaz",
+      "license": "https://github.com/getkagaz/kagaz/blob/main/LICENSE",
+      "author": { "@type": "Organization", "name": "Relyweb Technologies Private Limited" },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is Kagaz a cloud service or a document store?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Neither. There is no Kagaz account and no backend, and nothing you file or search is ever sent anywhere. Your files stay as ordinary files on disk." } },
+        { "@type": "Question", "name": "Why Apple silicon only?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Both semantic classifier tiers are Apple-silicon-only: Apple Vision accurate-mode OCR and Apple Foundation Models on-device generation are arm64 frameworks, so Apple silicon is a deliberate, permanent requirement." } },
+        { "@type": "Question", "name": "Do I need to run a local LLM?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. The offline rules-based classifier is always available. Apple on-device tiers add no download. MLX and Ollama are opt-in." } },
+        { "@type": "Question", "name": "What is the relationship between the CLI and the Mac app?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The CLI is the only thing that ever mutates a vault. The Mac app holds zero vault logic and shells out to kagaz --json, so it is convenience over a CLI that is complete on its own." } },
+        { "@type": "Question", "name": "The app is free — will it stay that way?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Kagaz for Mac is a paid product but is free for now while it is pre-1.0. It becomes paid once a more stable version ships. The kagaz CLI is and always will be free and open source under MIT." } }
+      ]
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://getkagaz.app/#org",
+      "name": "Kagaz",
+      "url": "https://getkagaz.app/",
+      "logo": "https://getkagaz.app/assets/icon-512.png",
+      "sameAs": ["https://github.com/getkagaz"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://getkagaz.app/#website",
+      "name": "Kagaz",
+      "url": "https://getkagaz.app/",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://getkagaz.app/#org" }
+    }
+  ]
+}
+</script>
+</body>
+</html>

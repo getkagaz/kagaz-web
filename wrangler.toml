@@ -1,0 +1,5 @@
+# Cloudflare Pages configuration (config-as-code).
+# Read by both the native Git integration and `wrangler pages deploy`.
+name = "kagaz-web"
+compatibility_date = "2026-08-22"
+pages_build_output_dir = "."

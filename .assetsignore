@@ -1,0 +1,11 @@
+# Repo/meta files that should not be served by Cloudflare Pages.
+.github
+.gitignore
+.editorconfig
+.assetsignore
+.lighthouseci
+wrangler.toml
+lighthouserc.json
+README.md
+CONTRIBUTING.md
+LICENSE

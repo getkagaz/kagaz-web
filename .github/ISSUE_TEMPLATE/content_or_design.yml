@@ -1,0 +1,25 @@
+name: "✍️ Content or design suggestion"
+description: Improve copy, wording, layout, accessibility, or visuals on the site
+labels: ["enhancement", "website"]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: Page / section
+      placeholder: "e.g. the Pricing section on the landing page"
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggestion
+      description: What should change?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: What's the benefit — clarity, accuracy, accessibility, etc.?
+    validations:
+      required: false

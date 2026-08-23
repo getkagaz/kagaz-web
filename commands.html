@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self' 'inline-speculation-rules'; object-src 'none'; form-action 'self'; manifest-src 'self'; require-trusted-types-for 'script'" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<title>Kagaz command reference — every subcommand, flag &amp; exit code</title>
+<meta name="description" content="The complete kagaz command reference — every subcommand, persistent flags, exit codes, and the stable --json envelope for scripts and agents." />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="theme-color" content="#f6f2e9" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#17140f" media="(prefers-color-scheme: dark)" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+<link rel="canonical" href="https://getkagaz.app/commands.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Kagaz command reference — every subcommand, flag & exit code" />
+<meta property="og:description" content="The full kagaz command reference with exit codes and the --json envelope." />
+<meta property="og:url" content="https://getkagaz.app/commands.html" />
+<meta property="og:site_name" content="Kagaz" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://getkagaz.app/assets/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Kagaz — local-first document vault manager for macOS" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://getkagaz.app/assets/og.png" />
+<script src="theme-init.js"></script>
+<link rel="preload" href="assets/fonts/instrument-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="assets/fonts/fonts.css" />
+<link rel="stylesheet" href="styles.css" />
+<script type="speculationrules">
+{ "prerender": [ { "where": { "href_matches": "/*" }, "eagerness": "moderate" } ] }
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#b6552b"/><text x="32" y="45" text-anchor="middle" font-size="40" font-weight="700" fill="#faf5ea" font-family="'Kohinoor Devanagari','Noto Sans Devanagari','Devanagari Sangam MN','Nirmala UI',serif">क</text></svg>
+      <span class="word">Kagaz</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#app">Mac app</a>
+      <a href="index.html#agents">For agents</a>
+      <a href="index.html#privacy">Privacy</a>
+      <a href="commands.html" aria-current="page">Commands</a>
+      <a href="index.html#pricing">Pricing</a>
+    </nav>
+    <div class="nav-right">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">
+        <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <a class="icon-btn" href="https://github.com/getkagaz/kagaz" aria-label="Kagaz on GitHub" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.36-3.88-1.36-.53-1.35-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.75.4-1.27.74-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.7 5.4-5.28 5.69.41.36.78 1.05.78 2.12v3.14c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+      </a>
+      <a class="btn btn-primary nav-cta-desktop" href="index.html#install">Install</a>
+      <button class="icon-btn nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="page-hero section-tight">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Command reference</div>
+    <h1>Command reference</h1>
+    <p class="lead"><code class="ca">kagaz</code> is a single binary. Every command accepts <code class="ca">--json</code> for a stable, documented shape, and mutating commands never change a vault without a preview and your approval.</p>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <h2 class="h-sec h-sub">Persistent flags</h2>
+    <p class="muted sub-note">Available on every command.</p>
+    <div class="table-card table-scroll">
+      <table class="cmd-table">
+        <thead><tr><th>Flag</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td><code>--vault &lt;path&gt;</code></td><td>Use this vault instead of discovering <code>vault.yaml</code> by walking up from the current directory.</td></tr>
+          <tr><td><code>--json</code></td><td>Emit a stable, documented JSON envelope instead of human text — same underlying data, never a separate code path.</td></tr>
+          <tr><td><code>--quiet</code></td><td>Suppress human progress output. Errors still go to stderr; the exit code is unchanged.</td></tr>
+          <tr><td><code>--version</code></td><td>Print the <code>kagaz</code> version and exit.</td></tr>
+          <tr><td><code>--yes</code> / <code>--accept-proposal</code></td><td>Approve a mutation non-interactively.</td></tr>
+          <tr><td><code>--propose-only</code></td><td>Print the proposal and exit <code>0</code> without touching the vault.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <h2 class="h-sec h-sub">Commands</h2>
+    <p class="muted sub-note">Read-only queries and reversible mutations, clearly separated.</p>
+    <div class="table-card table-scroll">
+      <table class="cmd-table">
+        <thead><tr><th class="w-cmd">Command</th><th>Does</th></tr></thead>
+        <tbody>
+          <tr><td><code>kagaz init</code></td><td>Create a new vault (<code>--fy-start</code>, <code>--root</code>, <code>--name</code>, <code>--demo</code>).</td></tr>
+          <tr><td><code>kagaz find</code></td><td>Query by person, company, area, doctype, tag, period, or free text. The read-only command agents lean on most.</td></tr>
+          <tr><td><code>kagaz doctypes</code></td><td>List the doctype catalog this vault resolves to, with source and filed counts.</td></tr>
+          <tr><td><code>kagaz ingest</code></td><td>OCR → classify → propose → (on approval) file, with a numbered batch review. <code>--set-doctype</code> to file an otherwise unclassified document.</td></tr>
+          <tr><td><code>kagaz move</code></td><td>Relocate a document to its conventional path — SHA256-verified copy, tag/sidecar carry-over, staged source.</td></tr>
+          <tr><td><code>kagaz tag</code></td><td>Add/remove Finder tags with <code>--add</code>/<code>--remove</code>, validated against the vault's controlled vocabulary.</td></tr>
+          <tr><td><code>kagaz supersede</code></td><td>Mark a document replaced by a newer one; moves the lifecycle tag from <code>active</code> to <code>superseded</code>.</td></tr>
+          <tr><td><code>kagaz lint</code></td><td>Report (and optionally <code>--fix</code>) convention violations. <code>--fix</code> applies only provably safe repairs.</td></tr>
+          <tr><td><code>kagaz index</code></td><td>Regenerate <code>INDEX.md</code> and <code>AGENTS.md</code> from the tree and <code>vault.yaml</code>.</td></tr>
+          <tr><td><code>kagaz rollback</code></td><td>Reverse any manifest a mutating command produced. Safe to run twice.</td></tr>
+          <tr><td><code>kagaz resolve</code></td><td>Resolve a document reference to its current path. <code>--for-send</code> gates confidential documents behind explicit confirmation.</td></tr>
+          <tr><td><code>kagaz log</code></td><td>Tail the append-only JSONL audit log.</td></tr>
+          <tr><td><code>kagaz model pull</code></td><td>Download MLX classifier weights — the only network call in Kagaz.</td></tr>
+          <tr><td><code>kagaz doctor</code></td><td>Check vault health and which optional tools/classifier backends are available.</td></tr>
+          <tr><td><code>kagaz watch</code></td><td>Watch the vault and keep ingest proposals current, without auto-executing.</td></tr>
+          <tr><td><code>kagaz mcp</code></td><td>Run the stdio MCP server.</td></tr>
+          <tr><td><code>kagaz completion</code></td><td>Shell completion scripts.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="wrap">
+    <h2 class="h-sec h-sub">Exit codes</h2>
+    <p class="muted sub-note">Part of the contract — a script may branch on these.</p>
+    <div class="table-card table-scroll">
+      <table class="cmd-table">
+        <thead><tr><th class="w-code">Code</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td><code>0</code></td><td>Success. A refusal that is a real answer exits <code>0</code> too — e.g. <code>ingest --propose-only</code> that proposes nothing, or <code>lint</code> with only warnings.</td></tr>
+          <tr><td><code>1</code></td><td>A runtime failure: no vault found, a path that does not exist, a tag outside the vocabulary.</td></tr>
+          <tr><td><code>2</code></td><td>A bad invocation — unknown flag, missing argument.</td></tr>
+          <tr><td><code>3</code></td><td>A refusal to act without consent: <code>resolve --for-send</code> on a confidential document with no <code>--confirm</code>. No path is printed.</td></tr>
+          <tr><td><code>4</code></td><td><code>lint</code> completed and found <b>error</b>-severity findings. Warnings and info alone still exit <code>0</code>.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout mt-24">The distinction between <code>1</code> and <code>3</code> is the one worth branching on: <code>1</code> means the command could not be carried out; <code>3</code> means it could and deliberately was not, pending a human.</div>
+  </div>
+</section>
+
+<section class="section-tight pb-96">
+  <div class="wrap prose">
+    <h2>The confidential-send gate</h2>
+    <p>Resolving a document tagged <code>confidential</code> for handoff outside the vault — attaching it to an email, uploading it, handing it to another tool — requires explicit confirmation and writes an audit line either way. With <code>--json</code>, <code>resolve --for-send</code> never prompts; it returns a structured response and a non-zero exit instead of a path:</p>
+    <div class="codeblock" data-copy>{
+  <span class="kw">"status"</span>: <span class="json-str">"confirmation_required"</span>,
+  <span class="kw">"path"</span>: <span class="json-str">"Financial/Alex Rao/FY 2026/Invoice_…​.pdf"</span>,
+  <span class="kw">"reason"</span>: <span class="json-str">"tagged confidential"</span>,
+  <span class="kw">"message"</span>: <span class="json-str">"re-run with --confirm to resolve for external send"</span>
+}</div>
+    <p>An explicit <code>--confirm</code> supplies the consent an interactive prompt would gather, and only then does the command emit the resolved path and exit <code>0</code>. The audit line is written on the <code>confirmation_required</code> response too — recording that resolution was <em>attempted</em> and <em>not yet</em> confirmed.</p>
+    <p class="mt-24"><a class="btn btn-ghost" href="https://github.com/getkagaz/kagaz/blob/main/docs/commands.md">Read the canonical reference on GitHub →</a></p>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="15" fill="#b6552b"/><text x="32" y="45" text-anchor="middle" font-size="40" font-weight="700" fill="#faf5ea" font-family="'Kohinoor Devanagari','Noto Sans Devanagari','Devanagari Sangam MN','Nirmala UI',serif">क</text></svg><span class="word">Kagaz</span></div>
+        <p>A local-first, agent-legible document vault manager for macOS. Your files stay yours.</p>
+      </div>
+      <div class="foot-col">
+        <h3>Product</h3>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#app">Mac app</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#install">Install</a>
+      </div>
+      <div class="foot-col">
+        <h3>Developers</h3>
+        <a href="commands.html">Command reference</a>
+        <a href="index.html#agents">For agents</a>
+        <a href="https://github.com/getkagaz/kagaz/tree/main/docs">Documentation</a>
+        <a href="https://github.com/getkagaz/kagaz">Source (GitHub)</a>
+      </div>
+      <div class="foot-col">
+        <h3>Project</h3>
+        <a href="index.html#privacy">Privacy</a>
+        <a href="https://github.com/getkagaz/kagaz/blob/main/LICENSE">License (MIT)</a>
+        <a href="https://github.com/getkagaz/kagaz/blob/main/SECURITY.md">Security</a>
+        <a href="https://github.com/getkagaz/kagaz/blob/main/CONTRIBUTING.md">Contributing</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Relyweb Technologies Private Limited. CLI is MIT-licensed.</span>
+      <span class="tag">“kaagaz” · paper</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://getkagaz.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Command reference", "item": "https://getkagaz.app/commands.html" }
+  ]
+}
+</script>
+</body>
+</html>

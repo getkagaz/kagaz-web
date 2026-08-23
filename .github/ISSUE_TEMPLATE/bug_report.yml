@@ -1,0 +1,41 @@
+name: "🐞 Website bug"
+description: Something on getkagaz.app is broken or renders incorrectly
+labels: ["bug", "website"]
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for helping improve the Kagaz website. This tracker is for the **website only** — for the CLI or Mac app, use https://github.com/getkagaz/kagaz."
+  - type: input
+    id: page
+    attributes:
+      label: Page / URL
+      placeholder: "https://getkagaz.app/commands.html (or which section)"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you see? Include steps to reproduce if relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect instead?
+    validations:
+      required: false
+  - type: input
+    id: env
+    attributes:
+      label: Browser & OS
+      placeholder: "e.g. Safari 18 on macOS 15, or Chrome on Android 14"
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshot or console output (optional)
+      description: Drag in a screenshot, or paste any browser console errors.
+    validations:
+      required: false

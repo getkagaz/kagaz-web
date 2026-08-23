@@ -1,0 +1,30 @@
+# Security & caching headers for Netlify / Cloudflare Pages.
+# GitHub Pages cannot set custom headers — deploy behind Netlify/Cloudflare
+# (or a CDN/reverse proxy) for these to take effect. The <meta> CSP in each
+# HTML file is the GitHub Pages fallback for the policy below.
+
+/*
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self' 'inline-speculation-rules'; object-src 'none'; form-action 'self'; manifest-src 'self'; require-trusted-types-for 'script'; frame-ancestors 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), autoplay=(), camera=(), geolocation=(), gyroscope=(), microphone=(), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin
+
+# HTML: always revalidate so content updates ship immediately.
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Static assets are not content-hashed yet, so use a moderate TTL with
+# revalidation rather than `immutable`. Add content hashes to go immutable.
+/styles.css
+  Cache-Control: public, max-age=3600, must-revalidate
+/app.js
+  Cache-Control: public, max-age=3600, must-revalidate
+/theme-init.js
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Images/fonts change rarely.
+/assets/*
+  Cache-Control: public, max-age=604800

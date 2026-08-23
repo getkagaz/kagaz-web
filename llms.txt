@@ -1,0 +1,13 @@
+# Kagaz
+
+> Kagaz (काग़ज़, "paper") is a local-first document vault manager for macOS. It names, files and tags your documents by convention — no database, no cloud, and no proprietary file format. It is agent-legible on purpose: every command supports `--json`, it ships an MCP server (`kagaz mcp`), and each vault carries a generated `AGENTS.md`.
+
+Kagaz is open core: the `kagaz` CLI is MIT-licensed and free forever. A separate native macOS menu-bar app, Kagaz for Mac, is free during the pre-1.0 beta and paid once a stable release ships. Requires Apple silicon and macOS 15 (Sequoia) or later.
+
+## Pages
+- [Home](https://getkagaz.app/): what Kagaz is, how it works, privacy invariants, pricing, install.
+- [Command reference](https://getkagaz.app/commands.html): every `kagaz` subcommand, persistent flags, exit codes, and the `--json` envelope.
+
+## Source
+- [getkagaz/kagaz (GitHub)](https://github.com/getkagaz/kagaz): the MIT CLI, MCP server, and machelper binaries.
+- [Documentation](https://github.com/getkagaz/kagaz/tree/main/docs): architecture, installation, conventions.

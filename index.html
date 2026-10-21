@@ -221,7 +221,11 @@
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span><b>Lint &amp; config editor</b> — fix convention violations and edit <code>vault.yaml</code> with live validation.</span></li>
       </ul>
       <div class="hero-cta mt-28">
-        <span class="btn is-soon">Kagaz for Mac — launching soon</span>
+        <a class="btn btn-primary btn-lg" href="https://downloads.getkagaz.app/Kagaz.dmg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+          Download Kagaz for Mac
+        </a>
+        <a class="btn btn-ghost btn-lg" href="#install">Release notes &amp; checksum</a>
       </div>
     </div>
 
@@ -380,7 +384,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Lint view &amp; config editor</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Confidential-send confirmation</li>
         </ul>
-        <span class="btn is-soon">Launching soon</span>
+        <a class="btn btn-primary" href="https://downloads.getkagaz.app/Kagaz.dmg">Download — free while in beta</a>
       </div>
     </div>
     <p class="center muted price-foot">The CLI stays free and open source regardless — a terminal user loses nothing by not buying the app.</p>
@@ -402,10 +406,14 @@
     <p class="muted mt-16 fs-95">Installs the <code class="ca">kagaz</code> CLI, the <code class="ca">kagaz-mcp</code> server and the on-device OCR helper. Then run <code class="ca">kagaz doctor</code> to check your setup.</p>
 
     <h3 class="install-h">Kagaz for Mac <span class="muted h-note">— the menu-bar app</span></h3>
-    <div class="soon">
-      <span>A signed <code>.dmg</code> download will land here when the app is ready — free while it's in beta.</span>
-      <span class="soon-badge">Launching soon</span>
+    <div class="center">
+      <a class="btn btn-primary btn-lg" href="https://downloads.getkagaz.app/Kagaz.dmg">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+        Download Kagaz 0.1.0
+      </a>
     </div>
+    <p class="muted mt-16 fs-95">A signed, notarized <code>.dmg</code> — free while it's in beta. The app bundles the <code class="ca">kagaz</code> CLI, so Homebrew is optional: drag it to Applications and you are done.</p>
+    <p class="muted mt-16 fs-95">Verify it before you open it, if you like — <code>shasum -a 256 ~/Downloads/Kagaz.dmg</code> should print:<br><code class="ca">6c347d61741f2b3ca4d80de4a37a27446c3230a540e017505e3f437fa1b81ee3</code></p>
     <div class="center mt-36">
       <a class="btn btn-ghost btn-lg" href="https://github.com/getkagaz/kagaz">View the CLI on GitHub</a>
     </div>
@@ -509,7 +517,7 @@
       "operatingSystem": "macOS 15+ (Apple silicon)",
       "description": "A local-first, agent-legible document vault manager for macOS. Names, files and tags documents by convention with no database, no cloud and no proprietary format.",
       "url": "https://getkagaz.app/",
-      "downloadUrl": "https://github.com/getkagaz/kagaz",
+      "downloadUrl": "https://downloads.getkagaz.app/Kagaz.dmg",
       "license": "https://github.com/getkagaz/kagaz/blob/main/LICENSE",
       "author": { "@type": "Organization", "name": "Relyweb Technologies Private Limited" },
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }

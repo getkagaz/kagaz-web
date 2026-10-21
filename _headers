@@ -28,3 +28,16 @@
 # Images/fonts change rarely.
 /assets/*
   Cache-Control: public, max-age=604800
+
+# Crawler and metadata files. Spelled out rather than left to the browser's
+# heuristic caching (a fraction of Last-Modified age, which nothing here
+# controls), because the zone is set to respect origin headers: anything that
+# sends no Cache-Control gets a TTL nobody chose.
+/robots.txt
+  Cache-Control: public, max-age=3600, must-revalidate
+/sitemap.xml
+  Cache-Control: public, max-age=3600, must-revalidate
+/llms.txt
+  Cache-Control: public, max-age=3600, must-revalidate
+/site.webmanifest
+  Cache-Control: public, max-age=3600, must-revalidate

@@ -473,25 +473,5 @@ code { font-family: var(--font-mono); }
 .ad-cmd { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--accent-2); }
 .fs-95 { font-size: 0.95rem; }
 
-/* ---------- "Launching soon" states ---------- */
-.soon {
-  display: flex; align-items: center; gap: 16px; justify-content: space-between;
-  padding: 18px 20px; border: 1px dashed var(--line-2); border-radius: var(--radius);
-  background: var(--card); color: var(--ink-2); font-size: 0.98rem;
-}
-.soon code { color: var(--accent-2); }
-.soon-badge {
-  flex: none; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
-  padding: 6px 12px; border-radius: 999px; background: var(--indigo-soft); color: var(--indigo);
-}
-.btn.is-soon {
-  background: var(--card); color: var(--ink-3); border-color: var(--line-2);
-  box-shadow: none; cursor: default;
-}
-.btn.is-soon::before {
-  content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--indigo); flex: none;
-}
-@media (max-width: 480px) { .soon { flex-direction: column; align-items: flex-start; } }
-
 /* Large centered mark (404 page) */
 .mark-lg { width: 64px; height: 64px; margin: 0 auto 4px; display: block; }

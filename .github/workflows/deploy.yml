@@ -26,5 +26,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          # Project name + output dir come from wrangler.toml.
-          command: pages deploy
+          command: pages deploy --branch=main
